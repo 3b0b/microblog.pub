@@ -32,11 +32,16 @@ nav ul button {
 
 #admin .admin-menu {
     height: 40px;
-  }
+}
   
-  #admin nav.flexbox {
-    position: fixed;
-    opacity: 100%;
-    background: $background;
-  }
-  
+#admin nav.flexbox {
+  position: fixed;
+  opacity: 100%;
+  background: $background;
+}
+
+#notifications div.ap-object nav ul * {
+  padding: 2px 0;
+  line-height: normal;
+  font-size: 16px;
+}
