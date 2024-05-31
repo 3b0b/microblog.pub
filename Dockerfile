@@ -1,4 +1,4 @@
-FROM python:3.11-slim as python-base
+FROM python:3-slim as python-base
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
     POETRY_HOME="/opt/poetry" \
@@ -17,6 +17,7 @@ ENV PATH="/root/.cargo/bin:${PATH}"
 RUN curl -sSL https://install.python-poetry.org | python3 - 
 WORKDIR $PYSETUP_PATH
 COPY poetry.lock pyproject.toml ./
+RUN poetry lock
 RUN poetry install --only main
 
 FROM python-base as production
