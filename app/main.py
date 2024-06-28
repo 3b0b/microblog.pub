@@ -1597,7 +1597,25 @@ Disallow: /admin
 Disallow: /remote_interaction
 Disallow: /remote_follow
 
-User-agent: FacebookBot
+## https://commoncrawl.org/faq - Has been used by ChatGPT, Bard, and others for training a number of models.
+User-agent: CCBot
+Disallow: /
+## The bot used when a ChatGPT user instructs it to reference your website.
+User-agent: ChatGPT-User
+Disallow: /
+## The bot that OpenAI uses to collect bulk training data for ChatGPT.
+User-agent: GPTBot
+Disallow: /
+## Block Google from scraping your site for Bard and VertexAI.
+User-agent: Google-Extended
+Disallow: /
+## Omgili sell data they scrape to others for their AI training.
+User-agent: Omgilibot
+Disallow: /
+User-agent: Omgili
+Disallow: /
+
+## Meta’s bot that crawls public web pages to improve language models for their speech recognition technology.User-agent: FacebookBot
 Disallow: /
 
 ## Apple very kindly told us how to block their scraper AFTER they'd scraped everything.
