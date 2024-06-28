@@ -1595,7 +1595,36 @@ Disallow: /followers
 Disallow: /following
 Disallow: /admin
 Disallow: /remote_interaction
-Disallow: /remote_follow"""
+Disallow: /remote_follow
+
+User-agent: FacebookBot
+Disallow: /
+
+## Apple very kindly told us how to block their scraper AFTER they'd scraped everything.
+User-agent: Applebot-Extended
+Disallow: /
+
+## is used by used by Anthropic to gather data for their “AI” products, such as Claude
+User-agent: anthropic-ai
+Disallow: /
+
+## is another agent used by Anthropic that is more specifically related to Claude
+User-agent: ClaudeBot
+Disallow: /
+
+# is a somewhat dishonest scraping bot used to collect data to train LLMs. This is their default user-agent, but they make it easy for their clients to change it to something else and ignore your wishes
+User-agent: Diffbot
+Disallow: /
+
+## This is just getting stupid and I hope governments step in to wreck these tech-bro thieves.
+User-agent: Bytespider
+Disallow: /
+User-agent: ImagesiftBot
+Disallow: /
+User-agent: PerplexityBot
+Disallow: /
+User-agent: cohere-ai
+Disallow: /"""
 
 @app.get("/ai.txt", response_class=PlainTextResponse)
 async def robots_file():
